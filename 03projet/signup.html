@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Sign Up for Instagram</h2>
+        <form>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="fullName">
+                    Full Name
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300" id="fullName" type="text" placeholder="Your Full Name" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Username
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300" id="username" type="text" placeholder="Choose a Username" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                    Email Address
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300" id="email" type="email" placeholder="Your Email" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                    Phone Number
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300" id="phone" type="tel" placeholder="Your Phone Number" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    Password
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300" id="password" type="password" placeholder="Create a Password" required>
+            </div>
+            <div class="mb-6">
+                <label class="inline-flex items-center">
+                    <input class="form-checkbox h-5 w-5 text-pink-600" type="checkbox" required>
+                    <span class="ml-2 text-gray-700">I agree to the terms and conditions</span>
+                </label>
+            </div>
+            <div>
+                <button class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-pink-300 transition duration-300 ease-in-out" type="submit">
+                    Sign Up
+                </button>
+            </div>
+        </form>
+        <p class="mt-6 text-center text-gray-600">
+            Already have an account? 
+            <a href="login1.html" class="text-pink-600 hover:underline font-semibold">Log in</a>
+        </p>
+    </div>
+</body>
+</html>
