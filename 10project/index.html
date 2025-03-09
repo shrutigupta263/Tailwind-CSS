@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-[light-dark(var(--color-white),var(--color-gray-950))]">
+
+    <nav class="bg-blue-500 text-white p-4">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="text-lg font-semibold">Multi-Step Form</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="hover:underline">Sign</a></li>
+                <li><a href="#" class="hover:underline">About</a></li>
+                <li><a href="#" class="hover:underline">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="flex items-center justify-center h-screen ">
+        <div class="max-w-md w-full bg-white p-8 rounded-2xl shadow-lg">
+            <h1 class="text-2xl font-bold mb-4 p-1">Details Information about You</h1>
+            <div class="progress-bar bg-gray-200 rounded-full h-2 mb-4">
+                <div id="progress" class="bg-blue-500 h-2 rounded-full w-1/3"></div>
+            </div>
+     
+            <h2 id="step-title" class="text-xl font-semibold mb-4">Step 1 of 3</h2>
+
+            
+            <form id="multiStepForm">
+                <div id="step1" class="step block text-gray-700 text-sm font-bold mb-2">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="fullName">
+                         Full Name
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300" id="fullName" type="text" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="fullName">
+                         Date of Birth
+                        </label>
+                        <input type="date" id="dob" class="input-field shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="Age">
+                         Age
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300" id="age" type="number" placeholder="Your Age" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                         Phone Number
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300" id="phone" type="tel" placeholder="Your Phone Number" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                         Email Address
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300" id="email" type="email" placeholder="Your Email" required>
+                    </div>  
+                </div>
+            
+                <!-- Step 2 -->
+                <div id="step2" class="step hidden">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="fullName">
+                         Country
+                        </label>
+                        <input type="text" id="country" placeholder="Country" class="input-field shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="">
+                         State
+                        </label>
+                        <input type="text" id="state" placeholder="State" class="input-field shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="city">
+                         City
+                        </label>
+                        <input type="text" id="city" placeholder="City" class="input-field shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="pincode">
+                          Pincode
+                        </label>
+                        <input type="text" id="pincode" placeholder="Pincode" class="input-field shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
+                          Address
+                        </label>
+                        <input type="text" id="address" placeholder="Address" class="input-field shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300">
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div id="step3" class="step hidden">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="studying">
+                         Studying
+                        </label>
+                        <input type="text" id="studying" placeholder="Currently Studying" class="input-field input-field shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="schoolname">
+                         School/College Name
+                        </label>
+                        <input type="text" id="school" placeholder="School/College Name" class="input-field input-field shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring focus:ring-pink-300">
+                    </div>
+                </div>
+
+                 <!-- Navigation Buttons -->
+                <div class="flex justify-between mt-4">
+                    <button type="button" id="prevBtn" class="btn hidden bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Back</button>
+                    <button type="button" id="nextBtn" class="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Next</button>
+                    <button type="submit" id="submitBtn" class="btn hidden bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Submit</button>
+                </div>
+            </form>
+            
+        </div>
+        <!-- Right: Steps Indicator -->
+        <div class="w-1/3 border-l pl-6">
+            <h3 class="text-lg font-semibold mb-4">Steps</h3>
+            <ul class="space-y-3">
+                <li id="step-indicator-1" class="step-indicator active">1. Personal Details</li>
+                <li id="step-indicator-2" class="step-indicator">2. Address Information</li>
+                <li id="step-indicator-3" class="step-indicator">3. Education Details</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
