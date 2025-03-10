@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script defer src="script.js"></script>
+    <script src="https://unpkg.com/@heroicons/react/outline" defer></script>
+
+
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="max-w-7xl mx-auto bg-white shadow-md rounded-lg">
+        <!-- Top Navbar -->
+        <nav class="flex justify-between items-center bg-gray-200 px-6 py-3 border-b">
+            <div class="flex space-x-4">
+                <span class="font-semibold hover:text-blue-500 hover:brightness-110">Music</span>
+                <span class=" hover:text-blue-500 hover:brightness-110">File</span>
+                <span clas="hover:text-blue-500 hover:brightness-110 ">Edit</span>
+                <span class="hover:text-blue-500 hover:brightness-110">View</span>
+                <span class="hover:text-blue-500 hover:brightness-110">Account</span>
+            </div>
+            <button class="bg-black text-white px-4 py-2 rounded">Add Music</button>
+        </nav>
+        
+        <div class="flex">
+            <!-- Sidebar -->
+            <aside class="w-1/4 p-4 border-r">
+                <h2 class="text-lg font-bold mb-4">Discover</h2>
+                <ul class="space-y-2">
+                    <li class="flex items-center space-x-2">
+                        <i class="fas fa-headphones text-gray-500"></i>
+                        <a href="#" class="text-black-500 font-semibold hover:text-blue-500 hover:brightness-110">Listen Now</a>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <i class="fas fa-search text-gray-500"></i>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 hover:brightness-110">Browse</a>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <i class="fas fa-broadcast-tower text-gray-500"></i>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 hover:brightness-110">Radio</a>
+                    </li>
+                </ul>
+                <h2 class="text-lg font-bold mt-6 mb-4">Library</h2>
+                <ul class="space-y-2">
+                    <li class="flex items-center space-x-2">
+                        <i class="fas fa-list-ul text-gray-500"></i>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 hover:brightness-110">Playlists</a>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <i class="fas fa-music text-gray-500"></i>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 hover:brightness-110">Songs</a>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <i class="fas fa-user text-gray-500"></i>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 hover:brightness-110">Made for You</a>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <i class="fas fa-users text-gray-500"></i>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 hover:brightness-110">Artists</a>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <i class="fas fa-compact-disc text-gray-500"></i>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 hover:brightness-110">Albums</a>
+                    </li>
+                </ul>
+            </aside>
+            
+            <!-- Main Content -->
+            <div class="flex-1 px-6 py-4">
+                <nav class="flex justify-between items-center border-b pb-4">
+                    <h1 class="text-2xl font-bold">Music</h1>
+                    <div class="space-x-4">
+                        <button id="musicBtn" class="tab-button text-black-500 font-semibold hover:text-blue-500 hover:brightness-110">Music</button>
+                        <button id="podcastsBtn" class="tab-button text-black-500 hover:text-blue-500 hover:brightness-110">Podcasts</button>
+                        <button id="liveBtn" class="tab-button text-black-500 hover:text-blue-500 hover:brightness-110">Live</button>
+                    </div>
+                </nav>
+                <div class="mt-6">
+                    <h2 class="text-xl font-semibold">Listen Now</h2>
+                    <p class="text-gray-500 text-sm">Top picks for you. Updated daily.</p>
+                    <div class="grid grid-cols-4 gap-4 mt-4" id="content">
+                        <div class="rounded overflow-hidden shadow-lg">
+                            <img src="images/thumbnail.jpg" alt="React Rendezvous" class="w-full h-48 hover:scale-105 hover:brightness-110">
+                            <div class="p-2 bg-gray-200">React Rendezvous</div>
+                        </div>
+                        <div class="rounded overflow-hidden shadow-lg">
+                            <img src="images/images.jpg" alt="Async Awakenings" class="w-full h-48  hover:scale-105 hover:brightness-110">
+                            <div class="p-2 bg-gray-200">Async Awakenings</div>
+                        </div>
+                        <div class="rounded overflow-hidden shadow-lg">
+                            <img src="images/images.png" alt="The Art of Reusability" class="w-full h-48 hover:scale-105 hover:brightness-110">
+                            <div class="p-2 bg-gray-200">The Art of Reusability</div>
+                        </div>
+                        <div class="rounded overflow-hidden shadow-lg">
+                            <img src="images/pop-music.jpg" alt="Stateful Symphony" class="w-full h-48 hover:scale-105 hover:brightness-110">
+                            <div class="p-2 bg-gray-200">Stateful Symphony</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Made for You Section -->
+                <div class="mt-8">
+                    <h2 class="text-xl font-semibold">Made for You</h2>
+                    <p class="text-gray-500 text-sm">Your personal playlists. Updated daily.</p>
+                    <div class="grid grid-cols-6 gap-4 mt-4">
+                        <div class="rounded overflow-hidden shadow-lg">
+                            <img src="images/ae.jpg" alt="Thinking Components" class="w-full h-48 hover:scale-105 hover:brightness-110">
+                            <div class="p-2 bg-gray-200">Thinking Components</div>
+                        </div>
+                        <div class="rounded overflow-hidden shadow-lg">
+                            <img src="images/music.webp" alt="Functional Fury" class="w-full h-48 hover:scale-105 hover:brightness-110">
+                            <div class="p-2 bg-gray-200">Functional Fury</div>
+                        </div>
+                        <div class="rounded overflow-hidden shadow-lg">
+                            <img src="images/images.jpg" alt="React Rendezvous" class="w-full h-48 hover:scale-105 hover:brightness-110">
+                            <div class="p-2 bg-gray-200">React Rendezvous</div>
+                        </div>
+                        <div class="rounded overflow-hidden shadow-lg">
+                            <img src="images/images.png" alt="Stateful Symphony" class="w-full  h-48 hover:scale-105 hover:brightness-110">
+                            <div class="p-2 bg-gray-200">Stateful Symphony</div>
+                        </div>
+                        <div class="rounded overflow-hidden shadow-lg">
+                            <img src="images/pop-music.jpg" alt="Async Awakenings" class="w-full h-48 hover:scale-105 hover:brightness-110">
+                            <div class="p-2 bg-gray-200">Async Awakenings</div>
+                        </div>
+                        <div class="rounded overflow-hidden shadow-lg">
+                            <img src="images/thumbnail.jpg" alt="The Art of Reusability" class="w-full h-48 hover:scale-105 hover:brightness-110">
+                            <div class="p-2 bg-gray-200">The Art of Reusability</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
