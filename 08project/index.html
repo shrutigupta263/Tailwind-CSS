@@ -6,8 +6,13 @@
     <title>Admin Dashboard</title>
     <script src="script.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
 </head>
-<body class="bg-gray-100 p-6">
+<body class="bg-gray-100 h-screen w-screen">
     <div class="max-w-7xl mx-auto bg-white shadow rounded-lg p-6">
         <div class="flex justify-between items-center border-b pb-4">
             <div class="flex items-center gap-3">
@@ -24,6 +29,15 @@
 
         <div id="overview" class="content mt-6">
             <h1 class="text-2xl font-semibold">Dashboard</h1>
+            <!-- Date Picker -->
+            <div class="flex space-x-4 p-3 ml-auto ">
+                <input type="date" id="datePicker" class="px-3 py-2 border rounded-lg text-gray-600">
+                
+                <!-- Download Button -->
+                <button id="downloadBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                    Download
+                </button>
+            </div>
             <div class="grid grid-cols-4 gap-4 mt-4">
                 <div class="bg-gray-200 p-4 rounded">Total Revenue: $45,231.89</div>
                 <div class="bg-gray-200 p-4 rounded">Subscriptions: +2350</div>
@@ -42,9 +56,12 @@
                         <li class="flex justify-between py-2">Sofia Davis <span>+$39.00</span></li>
                     </ul>
                 </div>
-                <div class="bg-gray-200 p-4 rounded">
-                    <h2 class="text-lg font-semibold mb-3">Sales Overview</h2>
-                    <canvas id="salesChart"></canvas>
+                <div class="w-full max-w-5xl bg-white p-6 shadow-lg rounded-lg">
+                    <h2 class="text-xl font-semibold mb-4">Sales Overview</h2>
+            
+                    <div class="w-full h-[350px]">
+                        <canvas id="salesChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
