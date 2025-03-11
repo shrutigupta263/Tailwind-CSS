@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Playground</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Add Lucide icons for the UI elements -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css"> 
+
+</head>
+<body class="bg-white min-h-screen">
+    <!-- Main container -->
+    <div class="flex flex-col h-screen">
+        <!-- Header -->
+        <header class="border-b border-gray-200 px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold">Playground</h1>
+            <div class="flex items-center space-x-2">
+                <!-- Preset dropdown -->
+                <div class="relative" id="preset-dropdown">
+                    <button id="preset-btn" class="flex items-center justify-between px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-700 w-48">
+                        <span>Load a preset...</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div id="preset-menu" class="dropdown-content">
+                        <div class="py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Grammatical Standard English</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Q&A</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Classification</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">English to Other Languages</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Text to Command</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Chat</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action buttons -->
+                <button id="save-btn" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-800">Save</button>
+                <button id="view-code-btn" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-800">View code</button>
+                <button id="share-btn" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-800">Share</button>
+                
+                <!-- More options dropdown -->
+                <div class="relative" id="more-dropdown">
+                    <button id="more-btn" class="p-2 rounded-md hover:bg-gray-100">
+                        <i data-lucide="more-horizontal" class="w-5 h-5"></i>
+                    </button>
+                    <div id="more-menu" class="dropdown-content right-0">
+                        <div class="py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Export</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Import</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main content -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Playground area -->
+            <div class="flex-1 p-4 overflow-auto">
+                <textarea id="playground-input" class="w-full border border-gray-200 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 playground-textarea" placeholder="Write a tagline for an ice cream shop"></textarea>
+                
+                <!-- Submit button area -->
+                <div class="mt-4 flex space-x-2">
+                    <button id="submit-btn" class="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800">Submit</button>
+                    <button id="reset-btn" class="p-2 rounded-md hover:bg-gray-100">
+                        <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Settings sidebar -->
+            <div class="w-80 border-l border-gray-200 p-4 overflow-y-auto">
+                <!-- Mode section -->
+                <div class="mb-6">
+                    <h2 class="text-sm font-medium text-gray-700 mb-2">Mode</h2>
+                    <div class="flex space-x-2">
+                        <button class="p-2 bg-gray-100 rounded-md hover:bg-gray-200 active:bg-gray-300">
+                            <i data-lucide="list" class="w-5 h-5"></i>
+                        </button>
+                        <button class="p-2 bg-gray-100 rounded-md hover:bg-gray-200 active:bg-gray-300">
+                            <i data-lucide="download" class="w-5 h-5"></i>
+                        </button>
+                        <button class="p-2 bg-gray-100 rounded-md hover:bg-gray-200 active:bg-gray-300">
+                            <i data-lucide="align-justify" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Model section -->
+                <div class="mb-6">
+                    <h2 class="text-sm font-medium text-gray-700 mb-2">Model</h2>
+                    <div class="relative">
+                        <button id="model-btn" class="flex items-center justify-between w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-700">
+                            <span>text-davinci-003</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                        <div id="model-menu" class="dropdown-content w-full">
+                            <div class="py-1">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">text-davinci-003</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">text-davinci-002</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">text-curie-001</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">text-babbage-001</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Temperature section -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h2 class="text-sm font-medium text-gray-700">Temperature</h2>
+                        <span id="temperature-value" class="text-sm text-gray-500">0.56</span>
+                    </div>
+                    <input type="range" id="temperature-slider" min="0" max="1" step="0.01" value="0.56" class="slider">
+                </div>
+                
+                <!-- Maximum Length section -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h2 class="text-sm font-medium text-gray-700">Maximum Length</h2>
+                        <span id="max-length-value" class="text-sm text-gray-500">256</span>
+                    </div>
+                    <input type="range" id="max-length-slider" min="1" max="4000" step="1" value="256" class="slider">
+                </div>
+                
+                <!-- Top P section -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h2 class="text-sm font-medium text-gray-700">Top P</h2>
+                        <span id="top-p-value" class="text-sm text-gray-500">0.9</span>
+                    </div>
+                    <input type="range" id="top-p-slider" min="0" max="1" step="0.01" value="0.9" class="slider">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
